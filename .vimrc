@@ -15,6 +15,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_python_checkers=['pyflakes', 'pep8']
 
 " finally getting to switch off arrow keys
 map <Left> <Nop>
@@ -33,12 +34,16 @@ set encoding=utf-8
 
 " ctrl-p
 let g:ctrlp_custom_ignore = '\v[\/](\.git|node_modules|\.virtualenv|)$'
-nmap <Leader>p :CtrlP<cr>
-nmap <Leader>m :CtrlPMRUFiles<cr>
 
 " ctrl-w leaves insert mode first, since in insertmode it does some really
 " evil stuff
 inoremap <C-W> <ESC><C-W> 
+
+" window movement made easy
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
 
 " disable mouse navigation
 set mouse=
@@ -82,3 +87,16 @@ set scrolloff=10
 set list
 set listchars=trail:.,tab:>-,nbsp:x
 highlight SpecialKey ctermbg=12 guibg=#ffaaaa
+
+" fold everything in python
+set foldmethod=indent
+set foldlevel=99
+
+" supertab
+au FileType python set omnifunc=pythoncomplete#Complete
+let g:SuperTabDefaultCompletionType = "context"
+
+" set quick-access
+nmap <leader>u :GundoToggle<CR>
+nmap <Leader>pp :CtrlP<cr>
+nmap <Leader>pm :CtrlPMRUFiles<cr>
