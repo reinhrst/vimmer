@@ -37,7 +37,7 @@ let g:ctrlp_custom_ignore = '\v[\/](\.git|node_modules|\.virtualenv|)$'
 
 " ctrl-w leaves insert mode first, since in insertmode it does some really
 " evil stuff
-inoremap <C-W> <ESC><C-W> 
+inoremap <C-W> <ESC><C-W>
 
 " window movement made easy
 map <C-h> <C-w>h
@@ -76,6 +76,7 @@ command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
 
 " define the :Font command
 command -nargs=1 Font set guifont=Menlo\ for\ Powerline:h<args>
+set guifont=Menlo\ for\ Powerline:h11
 
 " soft margin at column 80
 set colorcolumn=80
@@ -92,11 +93,40 @@ highlight SpecialKey ctermbg=12 guibg=#ffaaaa
 set foldmethod=indent
 set foldlevel=99
 
-" supertab
-au FileType python set omnifunc=pythoncomplete#Complete
-let g:SuperTabDefaultCompletionType = "context"
-
 " set quick-access
 nmap <leader>u :GundoToggle<CR>
 nmap <Leader>pp :CtrlP<cr>
 nmap <Leader>pm :CtrlPMRUFiles<cr>
+
+" powerline
+python3 from powerline.vim import setup as powerline_setup
+python3 powerline_setup()
+python3 del powerline_setup
+
+" jedi and supertab
+let g:jedi#auto_vim_configuration = 0
+let g:jedi#use_tabs_not_buffers = 0
+let g:jedi#goto_assignments_command = "<leader>g"
+let g:jedi#goto_definitions_command = "<leader>d"
+let g:jedi#documentation_command = "K"
+let g:jedi#usages_command = "<leader>n"
+let g:jedi#completions_command = "<C-Space>"
+let g:jedi#rename_command = "<leader>r"
+set completeopt=menuone,longest,preview
+let g:SuperTabDefaultCompletionType = "context"
+
+" disable help, ex mode and open new tab
+noremap <F1> <nop>
+noremap Q <nop>
+noremap <C-t> <nop>
+
+" block creating even if position doesn't exist
+set virtualedit=block
+
+" Y yanks rest of the line
+nnoremap Y y$
+
+" new split locations
+set splitbelow
+set splitright
+
