@@ -98,11 +98,6 @@ nmap <leader>u :GundoToggle<CR>
 nmap <Leader>pp :CtrlP<cr>
 nmap <Leader>pm :CtrlPMRUFiles<cr>
 
-" powerline
-python3 from powerline.vim import setup as powerline_setup
-python3 powerline_setup()
-python3 del powerline_setup
-
 " jedi and supertab
 let g:jedi#auto_vim_configuration = 0
 let g:jedi#use_tabs_not_buffers = 0
@@ -130,3 +125,7 @@ nnoremap Y y$
 set splitbelow
 set splitright
 
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+:nnoremap <C-Tab> :bnext<CR>
+:nnoremap <C-S-Tab> :bprevious<CR>
