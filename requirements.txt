@@ -3,3 +3,4 @@ flake8==2.3.0
 pylint==1.4.1
 powerline-status==2.0
 jedi==0.8.1
+pep8==1.6.2
