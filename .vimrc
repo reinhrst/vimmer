@@ -12,10 +12,9 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-let g:syntastic_python_checkers=['pyflakes', 'pep8']
+let g:syntastic_python_checkers=['flake8', 'mypy']
 
 " finally getting to switch off arrow keys
 map <Left> <Nop>
@@ -101,14 +100,15 @@ nmap <Leader>pm :CtrlPMRUFiles<cr>
 " jedi and supertab
 let g:jedi#auto_vim_configuration = 0
 let g:jedi#use_tabs_not_buffers = 0
+let g:jedi#show_call_signatures = "2"
 let g:jedi#goto_assignments_command = "<leader>g"
 let g:jedi#goto_definitions_command = "<leader>d"
 let g:jedi#documentation_command = "K"
 let g:jedi#usages_command = "<leader>n"
 let g:jedi#completions_command = "<C-Space>"
 let g:jedi#rename_command = "<leader>r"
-set completeopt=menuone,longest,preview
-let g:SuperTabDefaultCompletionType = "context"
+set completeopt=menu,longest,preview
+let g:SuperTabDefaultCompletionType = "<c-n>"
 
 " disable help, ex mode and open new tab
 noremap <F1> <nop>
