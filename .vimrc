@@ -12,6 +12,8 @@ colorscheme solarized
 " quickkeys with [ and ]
 Bundle 'tpope/vim-unimpaired'
 
+Bundle 'ervandew/supertab'
+
 " opening files
 Bundle 'kien/ctrlp.vim'
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
@@ -42,17 +44,7 @@ Bundle 'hynek/vim-python-pep8-indent'
 
 " python code completer
 Bundle 'davidhalter/jedi-vim'
-let g:jedi#auto_vim_configuration = 0
 let g:jedi#use_tabs_not_buffers = 0
-let g:jedi#show_call_signatures = 0
-let g:jedi#popup_on_dot = 0
-let g:jedi#popup_select_first = 0
-let g:jedi#goto_assignments_command = "<leader>g"
-let g:jedi#goto_definitions_command = "<leader>d"
-let g:jedi#documentation_command = "K"
-let g:jedi#usages_command = "<leader>n"
-let g:jedi#completions_command = "<C-Space>"
-let g:jedi#rename_command = "<leader>r"
 
 " statusline
 Bundle 'bling/vim-airline'
@@ -61,9 +53,6 @@ let g:airline_powerline_fonts = 1
 
 " ecmascript6 highlighter
 Bundle 'othree/yajs'
-
-" YouCompleteMe
-Bundle 'Valloric/YouCompleteMe'
 
 filetype on
 syntax on
