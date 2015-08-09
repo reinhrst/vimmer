@@ -12,8 +12,6 @@ colorscheme solarized
 " quickkeys with [ and ]
 Bundle 'tpope/vim-unimpaired'
 
-Bundle 'ervandew/supertab'
-
 " opening files
 Bundle 'kien/ctrlp.vim'
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
@@ -42,10 +40,6 @@ au BufRead,BufNewFile *.json set filetype=json
 " pep8 valid indents
 Bundle 'hynek/vim-python-pep8-indent'
 
-" python code completer
-Bundle 'davidhalter/jedi-vim'
-let g:jedi#use_tabs_not_buffers = 0
-
 " statusline
 Bundle 'bling/vim-airline'
 let g:airline#extensions#tabline#enabled = 1
@@ -53,6 +47,9 @@ let g:airline_powerline_fonts = 1
 
 " ecmascript6 highlighter
 Bundle 'othree/yajs'
+
+" YouCompleteMe
+Bundle 'Valloric/YouCompleteMe'
 
 filetype on
 syntax on
