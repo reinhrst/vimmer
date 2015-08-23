@@ -51,6 +51,10 @@ Bundle 'othree/yajs'
 
 " YouCompleteMe
 Bundle 'Valloric/YouCompleteMe'
+let g:ycm_path_to_python_interpreter="/usr/bin/python"  " make sure python2
+let g:ycm_add_preview_to_completeopt=1
+let g:ycm_autoclose_preview_window_after_insertion=1
+let g:ycm_key_detailed_diagnostics=''
 
 filetype on
 syntax on
