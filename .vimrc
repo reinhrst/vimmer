@@ -129,3 +129,41 @@ set virtualedit=block
 " new split locations
 set splitbelow
 set splitright
+
+function DictDotToggle()
+python << endpython
+import re, vim
+(row, col) = vim.current.window.cursor
+line = vim.current.buffer[row - 1]
+re_word = "(?P<word>[a-zA-Z_][a-zA-Z0-9_]*)"
+dottedwords = re.finditer(r"\." + re_word, line)
+for dottedword in dottedwords:
+    if dottedword.start("word") <= col and dottedword.end("word") > col:
+        new_line = (
+            line[:dottedword.start()] +
+            '["' + dottedword.group("word") + '"]' +
+            line[dottedword.end():])
+        new_col = col + 1
+        vim.current.buffer[row - 1] = new_line
+        vim.current.window.cursor = (row, new_col)
+        break
+else:
+    dictindices = re.finditer(r"""\[(?P<quote>['"])%s(?P=quote)\]""" % re_word, line)
+    for dictindex in dictindices:
+        if dictindex.start("word") <= col and dictindex.end("word") > col:
+            new_line = (
+                line[:dictindex.start()] +
+                '.' + dictindex.group("word") +
+                line[dictindex.end():])
+            new_col = col - 1
+            vim.current.buffer[row - 1] = new_line
+            vim.current.window.cursor = (row, new_col)
+            break
+    else:
+        print("No match found")
+endpython
+endfunction
+
+nnoremap <silent> <Plug>DictDotToggle :call DictDotToggle()<CR>
+            \:call repeat#set("\<Plug>DictDotToggle")<CR>
+nmap <leader>d <Plug>DictDotToggle
