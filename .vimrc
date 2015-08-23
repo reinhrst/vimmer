@@ -9,6 +9,8 @@ Bundle 'altercation/vim-colors-solarized'
 set background=light
 colorscheme solarized
 
+Bundle 'tpope/vim-repeat'
+
 " quickkeys with [ and ]
 Bundle 'tpope/vim-unimpaired'
 
