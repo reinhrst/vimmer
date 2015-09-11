@@ -18,8 +18,7 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'kien/ctrlp.vim'
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 let g:ctrlp_use_caching = 0
-nmap <Leader>pp :CtrlP<cr>
-nmap <Leader>pm :CtrlPMRUFiles<cr>
+nmap <Leader>p :CtrlP<cr>
 
 " git integration
 Plugin 'tpope/vim-fugitive'
