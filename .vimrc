@@ -1,33 +1,33 @@
 set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#rc()
 
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/Vundle.vim'
 " color scheme
-Bundle 'altercation/vim-colors-solarized'
+Plugin 'altercation/vim-colors-solarized'
 set background=light
 colorscheme solarized
 
-Bundle 'tpope/vim-repeat'
+Plugin 'tpope/vim-repeat'
 
 " quickkeys with [ and ]
-Bundle 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-unimpaired'
 
 " opening files
-Bundle 'kien/ctrlp.vim'
+Plugin 'kien/ctrlp.vim'
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 let g:ctrlp_use_caching = 0
 nmap <Leader>pp :CtrlP<cr>
 nmap <Leader>pm :CtrlPMRUFiles<cr>
 
 " git integration
-Bundle 'tpope/vim-fugitive'
+Plugin 'tpope/vim-fugitive'
 " easily surround words with quotes/brackets
-Bundle 'tpope/vim-surround'
+Plugin 'tpope/vim-surround'
 
 " syntax checker
-Bundle 'scrooloose/syntastic'
+Plugin 'scrooloose/syntastic'
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -40,17 +40,17 @@ let g:syntastic_javascript_checkers = ['eslint']
 au BufRead,BufNewFile *.json set filetype=json
 
 " pep8 valid indents
-Bundle 'hynek/vim-python-pep8-indent'
+Plugin 'hynek/vim-python-pep8-indent'
 
 " statusline
-Bundle 'bling/vim-airline'
+Plugin 'bling/vim-airline'
 let g:airline_powerline_fonts = 1
 
 " ecmascript6 highlighter
-Bundle 'othree/yajs'
+Plugin 'othree/yajs'
 
 " YouCompleteMe
-Bundle 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
 let g:ycm_path_to_python_interpreter="/usr/bin/python"  " make sure python2
 let g:ycm_add_preview_to_completeopt=1
 let g:ycm_autoclose_preview_window_after_insertion=1
