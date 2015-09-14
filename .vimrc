@@ -1,11 +1,16 @@
-set nocompatible
+" Vim needs a POSIX-Compliant shell. Fish is not.
+if $SHELL =~ 'bin/fish'
+ set shell=/bin/sh
+endif
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim/
-call vundle#rc()
+call vundle#begin()
 
-Plugin 'gmarik/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
+
 " color scheme
 Plugin 'altercation/vim-colors-solarized'
+syntax enable
 set background=light
 colorscheme solarized
 
@@ -54,6 +59,8 @@ let g:ycm_path_to_python_interpreter="/usr/bin/python"  " make sure python2
 let g:ycm_add_preview_to_completeopt=1
 let g:ycm_autoclose_preview_window_after_insertion=1
 let g:ycm_key_detailed_diagnostics=''
+
+call vundle#end()
 
 filetype on
 syntax on

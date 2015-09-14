@@ -1,0 +1,38 @@
+I[Scroll]
+C-f, C-b C-u, C-d scroll up/down by full/half page
+zz scroll so that cursor is in the middle
+
+[QuickFix]
+]q [q go to next/prev in quickfix list
+C-w <CR> open in new horizontal split
+
+[Splits]
+C-w L Move current split right
+C-w H Move current split left
+C-w <,> Move right window's edge left/right
+C-w (C-)o Only keep this window
+
+
+[Ctrl-P]
+Run :CtrlP or :CtrlP [starting-directory] to invoke CtrlP in find file mode.
+Run :CtrlPBuffer or :CtrlPMRU to start CtrlP in find buffer or find MRU file mode.
+Run :CtrlPMixed to search in Files, Buffers and MRU files at the same time.
+
+Press <c-f> and <c-b> to cycle between modes.
+Press <c-d> to switch to filename search instead of full path.
+Press <c-r> to switch to regexp mode.
+Use <c-t> or <c-v>, <c-x> to open the selected entry in a new tab or in a new split.
+Use <c-n>, <c-p> to select the next/previous string in the prompt's history.
+
+Submit two or more dots .. to go up the directory tree by one or multiple levels.
+End the input with a colon : followed by a command to execute it after opening the file:
+Use :25 to jump to line 25.
+
+[Search & highlight]
+* Search for word under cursor
+K Grep for word under cursor
+C-] Go to definition
+C-t Return (from C-])
+
+[Show enters and spaces and stuff]
+:set list
