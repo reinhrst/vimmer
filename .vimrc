@@ -4,34 +4,42 @@ if $SHELL =~ 'bin/fish'
 endif
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim/
+
 call vundle#begin()
-
 Plugin 'VundleVim/Vundle.vim'
-
-" color scheme
 Plugin 'altercation/vim-colors-solarized'
-syntax enable
-set background=light
-colorscheme solarized
-
 Plugin 'tpope/vim-repeat'
-
 " quickkeys with [ and ]
 Plugin 'tpope/vim-unimpaired'
-
 " opening files
 Plugin 'kien/ctrlp.vim'
-let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-let g:ctrlp_use_caching = 0
-nmap <Leader>p :CtrlP<cr>
-
 " git integration
 Plugin 'tpope/vim-fugitive'
 " easily surround words with quotes/brackets
 Plugin 'tpope/vim-surround'
-
 " syntax checker
 Plugin 'scrooloose/syntastic'
+" pep8 valid indents
+Plugin 'hynek/vim-python-pep8-indent'
+" statusline
+Plugin 'bling/vim-airline'
+" ecmascript6 highlighter
+Plugin 'othree/yajs'
+" YouCompleteMe
+Plugin 'Valloric/YouCompleteMe'
+call vundle#end()
+
+" color scheme
+syntax enable
+set background=dark
+colorscheme solarized
+
+let g:ctrlp_user_command = 'ag %s -l --nocolor -g "" --ignore __pycache__'
+let g:ctrlp_use_caching = 0
+nmap <leader>f :CtrlP<cr>
+nmap <leader>b :CtrlPBuffer<cr>
+
+
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -43,18 +51,9 @@ let g:syntastic_python_checkers=['flake8']
 let g:syntastic_javascript_checkers = ['eslint']
 au BufRead,BufNewFile *.json set filetype=json
 
-" pep8 valid indents
-Plugin 'hynek/vim-python-pep8-indent'
 
-" statusline
-Plugin 'bling/vim-airline'
 let g:airline_powerline_fonts = 1
 
-" ecmascript6 highlighter
-Plugin 'othree/yajs'
-
-" YouCompleteMe
-Plugin 'Valloric/YouCompleteMe'
 let g:ycm_path_to_python_interpreter="/usr/bin/python"  " make sure python2
 let g:ycm_add_preview_to_completeopt=1
 let g:ycm_autoclose_preview_window_after_insertion=1
