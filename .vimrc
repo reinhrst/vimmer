@@ -58,8 +58,11 @@ let g:ycm_path_to_python_interpreter="/usr/bin/python"  " make sure python2
 let g:ycm_add_preview_to_completeopt=1
 let g:ycm_autoclose_preview_window_after_insertion=1
 let g:ycm_key_detailed_diagnostics=''
-
-call vundle#end()
+let g:ycm_min_num_of_chars_for_completion = 99
+if !exists('g:ycm_semantic_triggers')
+    let g:ycm_semantic_triggers = {}
+endif
+let g:ycm_semantic_triggers.python = ['re!(?=[a-zA-Z_]{3})']
 
 filetype on
 syntax on
