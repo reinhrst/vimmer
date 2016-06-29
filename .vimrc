@@ -6,6 +6,7 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim/
 
 call vundle#begin()
+Plugin 'avakhov/vim-yaml'
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-repeat'
@@ -13,6 +14,8 @@ Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-unimpaired'
 " opening files
 Plugin 'kien/ctrlp.vim'
+" yankring
+Plugin 'sgur/ctrlp-extensions.vim'
 " git integration
 Plugin 'tpope/vim-fugitive'
 " easily surround words with quotes/brackets
@@ -54,7 +57,9 @@ au BufRead,BufNewFile *.json set filetype=json
 
 let g:airline_powerline_fonts = 1
 
-let g:ycm_path_to_python_interpreter="/usr/bin/python"  " make sure python2
+let g:ycm_path_to_python_interpreter="/usr/local/bin/python"  " make sure python2
+let g:ycm_python_binary_path=substitute(system("which python"), "\n$", "", "")
+let $PYTHONPATH=getcwd() . ":" . $PYTHONPATH
 let g:ycm_add_preview_to_completeopt=1
 let g:ycm_autoclose_preview_window_after_insertion=1
 let g:ycm_key_detailed_diagnostics=''
@@ -62,7 +67,11 @@ let g:ycm_min_num_of_chars_for_completion = 99
 if !exists('g:ycm_semantic_triggers')
     let g:ycm_semantic_triggers = {}
 endif
-let g:ycm_semantic_triggers.python = ['re!(?=[a-zA-Z_]{3})']
+let g:ycm_semantic_triggers.python = ['re![a-zA-Z_][a-zA-Z_0-9]{2,}']
+nmap <leader>g :YcmCompleter GoToDefinition<cr>
+
+let g:ycm_server_use_vim_stdout = 0
+let g:ycm_server_log_level = 'info'
 
 filetype on
 syntax on
